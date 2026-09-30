@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Glassmorphism surfaces matching design specifications */
+.desktop-glass {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.desktop-glass-card {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 24px -4px rgba(45, 55, 72, 0.07), 0 2px 6px -1px rgba(45, 55, 72, 0.04);
+}
+
+.desktop-glass-dark {
+  background: rgba(28, 30, 36, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 150, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 140, 150, 0.5);
+}
+
+/* macOS Vacuum / Genie Suck Effect when window closes:
+   Window stretches, funnels and collapses straight down into the bottom dock bar! */
+@keyframes macVacuumToDock {
+  0% {
+    transform: perspective(1000px) translateY(0) scale(1, 1) rotateX(0deg);
+    opacity: 1;
+    filter: blur(0px);
+    transform-origin: 50% 100%;
+  }
+  30% {
+    transform: perspective(1000px) translateY(18vh) scale(0.8, 0.9) rotateX(12deg);
+    opacity: 0.95;
+    filter: blur(0.5px);
+    transform-origin: 50% 100%;
+  }
+  60% {
+    transform: perspective(1000px) translateY(48vh) scale(0.4, 0.6) rotateX(24deg);
+    opacity: 0.8;
+    filter: blur(1.5px);
+    transform-origin: 50% 100%;
+  }
+  85% {
+    transform: perspective(1000px) translateY(72vh) scale(0.12, 0.25) rotateX(36deg);
+    opacity: 0.45;
+    filter: blur(3px);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    transform: perspective(1000px) translateY(88vh) scale(0.01, 0.03) rotateX(45deg);
+    opacity: 0;
+    filter: blur(6px);
+    transform-origin: 50% 100%;
+  }
+}
+
+/* macOS Vacuum Opening Effect: window expands upward from the bottom dock */
+@keyframes macVacuumFromDock {
+  0% {
+    transform: perspective(1000px) translateY(60vh) scale(0.1, 0.15) rotateX(35deg);
+    opacity: 0;
+    filter: blur(5px);
+    transform-origin: 50% 100%;
+  }
+  70% {
+    transform: perspective(1000px) translateY(-5px) scale(1.01, 1.01) rotateX(-2deg);
+    opacity: 0.98;
+    filter: blur(0px);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    transform: perspective(1000px) translateY(0) scale(1, 1) rotateX(0deg);
+    opacity: 1;
+    filter: blur(0px);
+    transform-origin: 50% 100%;
+  }
+}
+
+.mac-vacuum-closing {
+  animation: macVacuumToDock 320ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  pointer-events: none !important;
+}
+
+.mac-window-opening {
+  animation: macVacuumFromDock 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+

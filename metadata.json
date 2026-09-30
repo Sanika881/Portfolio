@@ -1,0 +1,6 @@
+{
+  "name": "Sanika | Personal Desktop Portfolio",
+  "description": "Interactive macOS-inspired personal desktop portfolio for Sanika Kadam, Python Developer & Tech Student specializing in AI/ML, Data Analytics, and Web Experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
